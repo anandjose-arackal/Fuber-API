@@ -3,7 +3,7 @@ class CabStatus < ApplicationRecord
 
 
   def update_status
-    self.update_column( available,  !self.available)
+    self.update_column( :available,  !self.available)
   end
 
   #Update cab availabe loacton after ride

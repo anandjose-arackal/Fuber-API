@@ -22,7 +22,7 @@ class Ride < ApplicationRecord
 
   def calculate_rent
     location = Location.new(self.source_latitude, self.source_longitude)
-    distance = Math.sqrt(location.distance_square(self.destination_latitue, self.destination_latitude))
+    distance = location.distance(self.destination_latitude, self.destination_latitude)
     rent = distance * PER_KM
     rent = rent + PINK_CHARGE if self.cab.pink
   end

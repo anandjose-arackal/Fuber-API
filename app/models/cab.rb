@@ -7,10 +7,11 @@ class Cab < ApplicationRecord
     nearest_distance = 0.0
     cabs.each do |cab|
       location = Location.new(latitude, longitude)
-      distance = location.distance_square(cab.cab_status.latitude, cab.cab_status.longitude)
-      if distance < nearest_distance
+      distance = location.distance(cab.cab_status.latitude, cab.cab_status.longitude)
+
+      if distance.to_i < nearest_distance.to_i
         nearest_distance = distance
-        nearest_cab = cab.id
+        nearest_cab = cab
       end
     end
     nearest_cab
@@ -23,4 +24,5 @@ class Cab < ApplicationRecord
       cabs =  Cab.includes(:cab_status).where(cab_statuses: {available: true})
     end
   end
+
 end
