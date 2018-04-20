@@ -1,4 +1,4 @@
-# Fuber API Moke of Cab booking app
+# Fuber API a Cab booking API
 
 # Modelling Problem:
 - You are the proprietor of füber, an on call taxi service.
